@@ -1,0 +1,104 @@
+$white: #fff;
+$grey: grey;
+$pink: pink;
+
+.cursor {
+  background: white; border-radius: 50%; 
+  width: 80px; height: 80px;
+  position: absolute;
+  z-index: 10; pointer-events: none;
+  opacity: 0.5;
+}
+.headerCircle {
+  position: fixed; top: 15px; right: 15px;
+  background: white; border-radius: 50%;
+  width: 80px; height: 80px;
+  z-index: 900;
+}
+
+.overlayHover {
+  display: none;
+  position: fixed; top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  .rightHover {
+    width: 35%;
+    float: right;
+    perspective: 100px;
+    z-index: 204;
+    margin-right: 17.5%;
+    margin-top: 7.5%;
+    height: 35%; background:transparent;
+  }
+  .rightHoverTwo {
+    width: 35%;
+    float: right;
+    perspective: 100px;
+    z-index: 204;
+    margin-right: 17.5%;
+    margin-top: 0px;
+    height: 35%; background:transparent;
+  }
+}
+.overlay {
+  display: none;
+  position: fixed; top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 201;
+  .left {
+    display: none;
+    width: 50%;
+    background: transparent;
+    float: left;
+    height: 100%;
+    justify-content: center; align-items: center;
+    .circleOverlay {
+      width: 225px;
+      height: 225px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid $blue;
+      z-index: 300;
+      // display: flex; align-items: center;
+      h2 {
+        font-family: sans-serif;
+        color: white; text-transform: uppercase;
+        font-size: 20px; font-weight: 200;
+        letter-spacing: 12.5px;
+        width: 200%;
+        margin-left: -10%;
+        line-height: 215px;
+      }
+    }
+  }
+  .right {
+    width: 50%;
+    float: right;
+    display: none;
+    perspective: 100px;
+
+    h1 {
+      display: flex;
+    }
+    h1:nth-child(1) {
+      margin-top: 100px;
+    }
+    h1 div {
+      font-family: 'Manrope';
+      color: $white;
+      font-size: 110px;
+      margin-bottom: 30px;
+      transform-origin: left;
+      margin-left: -5px;
+    }
+    h2 {
+      font-family: 'Manrope';
+      color: $white;
+      font-size: 25px;
+      margin-bottom: 60px;
+    }
+  }
+}

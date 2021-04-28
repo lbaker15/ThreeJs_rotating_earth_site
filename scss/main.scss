@@ -1,144 +1,67 @@
-.grid {
-  display: grid;
-  width: 100%;
+@import 'fonts';
+@import 'splash';
+@import 'footer';
+@import 'header';
+@import 'contact';
+
+
+* {
+  margin: 0; padding: 0;
+}
+body {
   overflow-x: hidden;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 100vh 100vh 60vh 100vh 100vh; }
+}
 
-.grid1 {
-  grid-column: 1 / span 4;
-  grid-row: 1 / span 1;
-  background: red; }
-
-.grid2 {
-  grid-column: 1 / span 4;
-  grid-row: 2 / span 1;
-  background: yellow; }
-
-.innergrid2 {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 100vh; }
-
-.left2 {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 1;
-  background: black; }
-
-.right2 {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 1;
-  background: white; }
-
-.grid3 {
-  grid-column: 1 / span 4;
-  grid-row: 3 / span 1;
-  background: green;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.flex3 {
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
-  grid-template-rows: repeat(2, 20vh);
-  gap: 10px; }
-
-.innerflex1 {
-  background: white;
-  border-radius: 5px;
-  grid-column: 1 / span 1;
-  grid-row: 1 / span 2; }
-
-.innerflex2 {
-  background: white;
-  border-radius: 5px;
-  grid-column: 2 / span 1;
-  grid-row: 1 / span 2; }
-
-.innerflex3 {
-  background: white;
-  border-radius: 5px;
-  grid-column: 3 / span 1;
-  grid-row: 1 / span 2; }
-
-.grid4 {
-  grid-column: 1 / span 4;
-  grid-row: 4 / span 1;
-  background: blue; }
-
-.innergrid4 {
-  display: grid;
-  width: 100%;
-  grid-template-columns: repeat(4, 25%);
-  grid-template-rows: 100vh; }
-
-.left4 {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 1;
-  background: blue; }
-
-.right4 {
-  grid-column: 3 / span 2;
-  grid-row: 1 / span 1;
-  background: white; }
-
-.grid5 {
-  grid-column: 1 / span 4;
-  grid-row: 5 / span 1;
-  background: purple; }
-
-@media (max-width: 936px) {
-  .grid {
-    grid-template-rows: 100vh 200vh 110vh 200vh 100vh; }
-  .innergrid2 {
-    grid-template-rows: repeat(2, 100vh); }
-  .left2 {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 4; }
-  .right2 {
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 4; }
-  .flex3 {
-    grid-template-rows: repeat(4, 20vh);
-    grid-template-columns: repeat(4, 150px);
-    gap: 20px; }
-  .innerflex1 {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 2;
-    background: pink; }
-  .innerflex2 {
-    grid-row: 1 / span 2;
-    grid-column: 3 / span 2; }
-  .innerflex3 {
-    grid-row: 3 / span 2;
-    grid-column: 2 / span 2;
-    background: orange; }
-  .innergrid4 {
-    grid-template-rows: repeat(2, 100vh); }
-  .left4 {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 4; }
-  .right4 {
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 4; } }
-
-@media (max-width: 706px) {
-  .grid {
-    grid-template-rows: 100vh 100vh 160vh 100vh 100vh; }
-  .flex3 {
-    grid-template-rows: repeat(6, 20vh);
-    grid-template-columns: repeat(1, 300px);
-    gap: 20px; }
-  .innerflex1 {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 1;
-    background: pink; }
-  .innerflex2 {
-    grid-row: 3 / span 2;
-    grid-column: 1 / span 1; }
-  .innerflex3 {
-    grid-row: 5 / span 2;
-    grid-column: 1 / span 1;
-    background: orange; } }
+#text {
+  width: 40vw;
+  margin-left: 0;
+  user-select: none;
+  h1 {
+    color: white;
+    font-size: 90px;
+    font-family: 'Manrope';
+    margin-bottom: 0;
+    margin-left: 14vw;
+    position: absolute;
+  }
+  h1:nth-child(1) {
+    margin-top: 200px;
+    margin-left: 5vw;
+  }
+  h1:nth-child(2) {
+    margin-top: 330px;
+    z-index: 10;
+    word-spacing: 22.5px;
+  }
+  h1:nth-child(3) {
+    margin-top: 5px;
+    margin-top: 460px;
+    margin-left: 5vw;
+  }
+  span {
+    position: absolute;
+    background-image: url('../images/scribble2.png');
+    background-size: cover; width: 600px; height: 600px;
+    transform: scaleX(1.65) scaleY(0.9);
+    margin-top: 95px;
+    margin-left: 14.25vw;
+    z-index: 1;
+  }
+}
+#canvas {
+  width: 60vw;
+  margin-left: 40vw;
+  margin-top: 0px;
+}
+.glowFlex {
+  display: flex; width: 60vw; height: 100vh; justify-content: center;
+  position: absolute;
+  margin-left: 40vw;
+  .glow {
+    width: 390px; height: 390px;
+    border: 15px solid aqua; border-radius: 50%;
+    z-index: 100;
+    margin-top: -565px;
+    filter: blur(20px);
+  }
+}

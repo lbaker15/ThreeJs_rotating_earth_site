@@ -1,0 +1,53 @@
+@import 'fonts';
+
+.footer {
+    height: 300px;
+    width: 100vw;
+    background: black;
+    color: white; font-family: 'Manrope';
+    .flex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 30px;
+    .flex1 {
+        width: 25%;
+        margin-left: 5vw;
+        font-size: 45px;
+        ul {
+           list-style: none; 
+        }
+    }
+    .flex2 {
+        width: 25%;
+        ul {
+            list-style: none; 
+        }
+        ul li {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+        ul li:nth-child(1) {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+    }
+    .flex3 {
+        width: 25%;
+        ul {
+            list-style: none; 
+        }
+        ul li {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+        ul li:nth-child(1) {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+    }
+    .flex4 {
+        width: 25%;
+    }
+}
+}

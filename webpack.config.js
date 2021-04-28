@@ -18,7 +18,11 @@ module.exports = {
     hot: true,
     port: 8080,
   },
-  entry: './src/js/index.js',
+  entry: {
+    main: './src/js/index.js',
+    threejs: './src/js/three.js',
+    contact: './src/js/contact.js'
+  },
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[id].bundle_[chunkhash].js',
@@ -30,6 +34,13 @@ module.exports = {
       title: 'webpack Boilerplate',
       template: path.resolve(__dirname, './src/index.html'), // template file
       filename: 'index.html', // output file
+      chunks: ['main', 'threejs']
+    }),
+    new HtmlWebpackPlugin({
+      title: 'webpack Boilerplate',
+      template: path.resolve(__dirname, './src/contact.html'), // template file
+      filename: 'contact.html', // output file
+      chunks: ['contact', 'threejs']
     }),
     new CleanWebpackPlugin(),
     
