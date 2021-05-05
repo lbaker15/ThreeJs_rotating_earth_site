@@ -92,6 +92,9 @@ window.addEventListener("resize", function () {
 document.addEventListener('click', (e) => {
     createShape(e.pageX, e.pageY)
 })
+document.addEventListener('ontouch', (e) => {
+  createShape(e.pageX, e.pageY)
+})
 window.addEventListener('DOMContentLoaded', () => {
     let number = 5;
     for(let i=0; i<number; i++) {

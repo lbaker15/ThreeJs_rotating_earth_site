@@ -6,15 +6,40 @@ import image2 from '/images/particle.png';
 import image3 from '/images/hi.png';
 // console.log('I have loaded', t)
 // set up a renderer
+
+
 const renderer = new THREE.WebGLRenderer({
   antialias: true
 })
-renderer.setSize((window.innerWidth/100)*60, window.innerHeight)
-renderer.setPixelRatio(window.devicePixelRatio)
-renderer.setClearColor(0x000000, 1)
+let sw;
+let sectionTag;
+let camera;
+  if( navigator.userAgent.match(/Android/i)
+  || navigator.userAgent.match(/webOS/i)
+  || navigator.userAgent.match(/iPhone/i)
+  || navigator.userAgent.match(/iPad/i)
+  || navigator.userAgent.match(/iPod/i)
+  || navigator.userAgent.match(/BlackBerry/i)
+  || navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    sectionTag = document.querySelector("#mobilecanvas")
+    sw = sectionTag.getBoundingClientRect()
+    sectionTag.appendChild(renderer.domElement)
+    renderer.setSize(sw.width, window.innerHeight/100*50)
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setClearColor(0x000000, 1)
+    camera = new THREE.PerspectiveCamera(50, sw.width / ((window.innerHeight/100)*50) , 0.1, 10000)
+  } else {
+    sectionTag = document.querySelector("#canvas")
+    sw = sectionTag.getBoundingClientRect()
+    sectionTag.appendChild(renderer.domElement)
+    renderer.setSize(sw.width, 750)
+    renderer.setPixelRatio(window.devicePixelRatio)
+    renderer.setClearColor(0x000000, 1)
+    camera = new THREE.PerspectiveCamera(50, sw.width / 750, 0.1, 10000)
+  }
 
-const sectionTag = document.querySelector("#canvas")
-sectionTag.appendChild(renderer.domElement)
+
 
 const scene = new THREE.Scene()
 scene.fog = new THREE.FogExp2(0x000000, 0.00025)
@@ -28,7 +53,6 @@ const pointLight = new THREE.PointLight(0xffffff, 1, 0)
 pointLight.position.set(500, 500, -2000)
 scene.add(pointLight)
 
-const camera = new THREE.PerspectiveCamera(50, (window.innerWidth/100)*60 / window.innerHeight, 0.1, 10000)
 camera.position.z = -3000
 
 // make a THREE.js loader
@@ -198,10 +222,22 @@ animate()
 
 
 window.addEventListener("resize", function () {
-  camera.aspect = (window.innerWidth/100)*60 / window.innerHeight
-  camera.updateProjectionMatrix()
-  
-  renderer.setSize((window.innerWidth/100)*60, window.innerHeight)
+  sw = sectionTag.getBoundingClientRect()
+  if ((navigator.userAgent.match(/Android/i)
+  || navigator.userAgent.match(/webOS/i)
+  || navigator.userAgent.match(/iPhone/i)
+  || navigator.userAgent.match(/iPad/i)
+  || navigator.userAgent.match(/iPod/i)
+  || navigator.userAgent.match(/BlackBerry/i)
+  || navigator.userAgent.match(/Windows Phone/i))) {
+    camera.aspect = sw.width / ((window.innerHeight/100)*50);
+    camera.updateProjectionMatrix()
+    renderer.setSize(sw.width, ((window.innerHeight/100)*50))
+  } else {
+    camera.aspect = sw.width / 750 
+    camera.updateProjectionMatrix()
+    renderer.setSize(sw.width, 750)
+  }
 })
 
 // variation: scroll down page
@@ -251,3 +287,4 @@ document.addEventListener("touchmove", function (event) {
 //   aimX = ((window.innerWidth / 2) - event.pageX) * 4
 //   aimY = ((window.innerHeight / 2) - event.pageY) * 4
 })
+
