@@ -1,6 +1,8 @@
 import '/scss/main.scss';
+import '/scss/scrollDisable.scss';
 import * as THREE from './three.js';
 import * as menu from './header.js';
+
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true
